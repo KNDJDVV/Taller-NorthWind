@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NorthWind.Entities.Interfaces
 {
-    public interface IUserActionWriter
+    public interface IUserActionWriter 
     {
         void Write(UserAction action);
     }
