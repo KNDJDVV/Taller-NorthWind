@@ -5,9 +5,10 @@ using NorthWind.Entities.Interfaces;
 using NorthWind.Writers;
 
 HostApplicationBuilder Builder = Host.CreateApplicationBuilder();
-Builder.Services.AddSingleton<IUserActionWriter, DebugWriter>();
+Builder.Services.AddConsoleWriter();
+Builder.Services.AddDebugWriter();
+Builder.Services.AddFileWriter();
 Builder.Services.AddSingleton<AppLogger>();
-Builder.Services.AddSingleton<FileWriter>();
 Builder.Services.AddSingleton<ProductService>();
 using var AppHost = Builder.Build();
 
