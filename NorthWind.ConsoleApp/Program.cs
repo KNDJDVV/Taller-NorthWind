@@ -6,14 +6,14 @@ using NorthWind.Writers;
 
 HostApplicationBuilder Builder = Host.CreateApplicationBuilder();
 Builder.Services.AddNorthWindServices();
-Builder.Services.AddSingleton<AppLogger>();
-Builder.Services.AddSingleton<ProductService>();
+Builder.Services.AddSingleton<IAppLogger>();
+Builder.Services.AddSingleton<IProductService>();
 using var AppHost = Builder.Build();
 
-AppLogger Logger = AppHost.Services.GetRequiredService<AppLogger>();
+IAppLogger Logger = AppHost.Services.GetRequiredService<IAppLogger>();
 Logger.WriteLog("Application started");
 
-ProductService Service = AppHost.Services.GetRequiredService<ProductService>();  
+IProductService Service = AppHost.Services.GetRequiredService<IProductService>();  
 
 Service.Add("Demo", "Azucar refinada");
 

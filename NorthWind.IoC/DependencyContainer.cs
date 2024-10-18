@@ -9,6 +9,7 @@ namespace Microsoft.Extensions.DependencyInjection
         public static IServiceCollection AddNorthWindServices(this IServiceCollection services)
         {
             services.AddDebugWriter();
+            services.AddServices();
             return services;
         }
       
